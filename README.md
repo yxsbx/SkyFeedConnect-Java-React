@@ -1,4 +1,4 @@
-# SkyFeedConnect - SFCAuthenticator
+# SFCAuthenticator
 
 ## Overview
 O `SFCAuthenticator` é responsável pela autenticação de usuários e gerenciamento de acessos utilizando tokens JSON Web (JWT). Este módulo assegura que as transações e acessos sejam realizados de maneira segura e eficiente.
