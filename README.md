@@ -4,9 +4,9 @@ Bem-vindo ao projeto SkyFeedConnect! Este README serve como uma introdução ao 
 
 ![SkyFeedConnect Gif](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/f8ed6e140f5f2d788da6a665b7726c765776ee98/screenshots/project.gif)
 
-- [README da pasta "SFCAuthenticator"](\SFCAuthenticator\README.md)
-- [README da pasta "SkyFeedConnect API Services"](\SkyFeedConnectAPI\README.md)
-- [README da pasta "SkyFeedConnect Frontend"](\vite-project\public\README.md)
+- [README da pasta "SFCAuthenticator"](/SFCAuthenticator/README.md)
+- [README da pasta "SkyFeedConnect API Services"](/SkyFeedConnectAPI/README.md)
+- [README da pasta "SkyFeedConnect Frontend"](/vite-project/public/README.md)
 
 ---
 
@@ -81,9 +81,9 @@ Este projeto foi desenvolvido por:
 
 Welcome to the SkyFeedConnect project! This README serves as an introduction to the project, describing its main functionalities, technologies used, and information about the group responsible for the development. This document provides an overview of the SkyFeedConnect project, including its different parts and technologies used. Below are the links to the READMEs of each specific folder in the project:
 
-- [README for "SFCAuthenticator" folder](\SFCAuthenticator\README.md)
-- [README for "SkyFeedConnect API Services" folder](\SkyFeedConnectAPI\README.md)
-- [README for "SkyFeedConnect Frontend" folder](\vite-project\public\README.md)
+- [README for "SFCAuthenticator" folder](/SFCAuthenticator/README.md)
+- [README for "SkyFeedConnect API Services" folder](/SkyFeedConnectAPI/README.md)
+- [README for "SkyFeedConnect Frontend" folder](/vite-project/public/README.md)
 
 ---
 
