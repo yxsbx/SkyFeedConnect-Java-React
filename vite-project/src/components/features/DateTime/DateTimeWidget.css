@@ -1,0 +1,56 @@
+#datetime-widget {
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  margin: 20px auto;
+  color: #fff;
+  text-align: center;
+}
+
+#datetime-content {
+  padding: 0 1rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#date-time-info {
+  text-align: center;
+}
+
+.datetime-data h2 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.datetime-data h3 {
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.datetime-data h3::first-letter {
+  text-transform: uppercase;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .datetime-data h2 {
+    font-size: 1.8rem;
+  }
+
+  .datetime-data h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Additional fine-tuning for very small mobile phones */
+@media (max-width: 480px) {
+  .datetime-data h2 {
+    font-size: 1.5rem;
+  }
+
+  .datetime-data h3 {
+    font-size: 1rem;
+  }
+}
