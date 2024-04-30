@@ -1,222 +1,147 @@
-# SFCAuthenticator
+# SkyFeedConnect
 
-## Overview
-O `SFCAuthenticator` é responsável pela autenticação de usuários e gerenciamento de acessos utilizando tokens JSON Web (JWT). Este módulo assegura que as transações e acessos sejam realizados de maneira segura e eficiente.
+Bem-vindo ao projeto SkyFeedConnect! Este README serve como uma introdução ao projeto, descrevendo suas funcionalidades principais, tecnologias utilizadas e informações sobre o grupo responsável pelo desenvolvimento. Este documento fornece uma visão geral do projeto SkyFeedConnect, incluindo suas diferentes partes e tecnologias utilizadas. Abaixo estão os links para os READMEs de cada pasta específica do projeto:
 
-## Tecnologias Utilizadas
+- [README da pasta "SFCAuthenticator"](\SFCAuthenticator\README.md)
+- [README da pasta "SkyFeedConnect API Services"](\SkyFeedConnectAPI\README.md)
+- [README da pasta "SkyFeedConnect Frontend"](\vite-project\public\README.md)
 
-**Spring Boot -** Framework para desenvolvimento de aplicações Java com microserviços.
-**Spring Security -** Framework de segurança para autenticação e proteção de aplicações.
-**JWT (Json Web Token) -** Padrão de token para autenticação entre duas partes.
-**JavaMailSender -** Interface do Spring para envio de emails.
-**Lombok -** Biblioteca que reduz código boilerplate em Java.
+---
 
-## Configuração e Instalação
+## Funcionalidades Principais
 
-**Pré-requisitos:**
-
-- **Java JDK 11 ou superior.**
-- **Maven para gestão de dependências e build do projeto.**
-- **Um servidor SMTP configurado para envio de e-mails.**
-
-**Clonar o Repositório:**
-
-``` bash
-git clone [URL do repositório]
-cd SFCAuthenticator
-```
-
-**Configurar Variáveis de Ambiente:**
-
-- **JWT_SECRET:** Chave secreta para assinatura dos tokens JWT.
-- **JWT_EXPIRATION_MS:** Tempo de expiração dos tokens JWT em milissegundos.
-- **Configurações de SMTP para spring.mail.**
-
-*Executar o Projeto:*
-
-``` bash
-mvn spring-boot:run
-```
-
-## Funcionalidades
-
-### Autenticação de Usuários
-
-- **Endpoint:** `POST /auth/login`
-- **Descrição:** Autentica usuários e retorna um token JWT para acesso.
-- **Payload de requisição:**
-
-  ```json
-  {
-    "username": "nomeDeUsuario",
-    "password": "senhaDeUsuario"
-  }
-  ```
-
-- **Resposta esperada:**
-
-  ```json
-  {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-  }
-  ```
-
-### Gestão de Usuários
-Funcionalidades para registrar e gerenciar usuários no sistema.
-
-#### Registro de Usuário
-- **Endpoint:** `POST /users/save`
-- **Descrição:** Registra um novo usuário no sistema.
-- **Payload de requisição:**
-
-  ```json
-  {
-    "username": "novoUsuario",
-    "email": "email@exemplo.com",
-    "password": "senhaSegura"
-  }
-  ```
-
-#### Exclusão de Usuário
-
-- **Endpoint:** `DELETE /users/delete`
-- **Descrição:** Remove um usuário existente com base nas credenciais fornecidas.
-- **Payload de requisição:**
-
-  ```json
-  {
-    "username": "usuarioExistente",
-    "password": "senhaDoUsuario"
-  }
-  ```
-
-#### Ativação de Usuário
-
-- **Endpoint:** `GET /users/activate/{uuid}`
-- **Descrição:** Ativa um usuário utilizando o UUID fornecido.
-
-## Autenticação e Segurança
-
-- **AuthEntryPointJwt:** Gerencia as tentativas de acesso não autorizado, respondendo com um status HTTP 401 e detalhes do erro em formato JSON.
-- **AuthFilterToken:** Filtro que verifica a presença de tokens JWT válidos nas requisições, autenticando usuários com base nesses tokens.
-- **JwtUtils:** Fornece métodos para geração, validação e extração de informações de tokens JWT.
-- **WebSecurityConfig:** Configurações de segurança da aplicação, incluindo CORS, CSRF, e gestão de sessões.
-
-
-# SkyFeedConnect API Services
-
-## Overview
-Bem-vindo aos serviços da SkyFeedConnect API! Este README fornece uma visão geral dos serviços disponíveis para interagir com APIs externas e gerenciar usuários.
-
-## Serviços
-
-### NewsResponseIBGE_Service
-
-Serviço responsável por buscar dados de notícias da API do IBGE.
-
-#### Funcionalidades:
-- **Buscar Notícias:**
-  - **Método:** `getNewsIBGE(Integer qtd)`
-  - **Descrição:** Recupera uma quantidade especificada das últimas notícias do IBGE.
-  - **Parâmetros:**
-    - `qtd`: O número de itens de notícias a serem recuperados. Se não especificado, o padrão é 1.
-  - **Retorno:** Retorna um `NewsResponseIBGE_DTO` contendo uma lista de itens de notícias, cada um com título, descrição e a primeira imagem associada.
-
-#### Endpoints:
-
-- **Buscar Notícias:**
-  - **Método:** `GET`
-  - **URL:** `/newsIBGE/{qtd}`
-  - **Descrição:** Recupera notícias do IBGE com base na quantidade especificada.
-  - **Parâmetros:**
-    - `qtd`: A quantidade de itens de notícias a serem recuperados.
-  - **Retorno:** Retorna um `NewsResponseIBGE_DTO` contendo dados de notícias do IBGE.
-
-
-### UserService
-
-Serviço para gerenciar usuários dentro do sistema.
-
-#### Funcionalidades:
-- **Adicionar Usuário:**
-  - **Método:** `addUser(UserRequestDTO userRequestDTO)`
-  - **Descrição:** Adiciona um novo usuário ao sistema usando os dados fornecidos.
-  - **Parâmetros:**
-    - `userRequestDTO`: Objeto contendo o nome de usuário do usuário.
-  - **Ação:** Salva o novo usuário no repositório de dados.
-
-#### Endpoints:
-
-- **Criar Novo Usuário:**
-  - **Método:** `POST`
-  - **URL:** `/auth/newUser`
-  - **Descrição:** Cria um novo usuário com base nos dados fornecidos.
-  - **Corpo da Requisição:** `UserRequestDTO`
-  - **Retorno:** Retorna um `ResponseEntity` indicando o sucesso da criação do usuário.
-
-### WeatherService
-
-Serviço para recuperar informações meteorológicas da API OpenWeatherMap.
-
-#### Funcionalidades:
-- **Recuperar Clima por Cidade:**
-  - **Método:** `getWeatherByCity(String city)`
-  - **Descrição:** Recupera dados meteorológicos para uma cidade especificada.
-  - **Parâmetros:**
-    - `city`: O nome da cidade para a qual os dados meteorológicos são solicitados.
-  - **Retorno:** Retorna um `WeatherResponseDTO` com informações detalhadas sobre o clima atual na cidade especificada.
-  - **Endpoint da API Usado:** `http://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&lang=pt_br&units=metric`
-  - **Chave da API:** A chave da API deve ser configurada no arquivo de propriedades do Spring (`application.properties`) na propriedade `openweather.api.key`.
-
-#### Endpoints:
-
-- **Obter Clima:**
-  - **Método:** `GET`
-  - **URL:** `/weather/{city}`
-  - **Descrição:** Recupera informações meteorológicas para a cidade especificada.
-  - **Parâmetros:**
-    - `city`: O nome da cidade para a qual os dados meteorológicos são solicitados.
-  - **Retorno:** Retorna um `ResponseEntity` contendo informações meteorológicas para a cidade especificada.
+- **Autenticação de Usuários:** Login, registro de novos usuários e verificação de email.
+- **Integração com APIs Externas:** Recuperação de dados de notícias da API do IBGE e informações meteorológicas da API OpenWeatherMap.
+- **Exibição de Conteúdo Dinâmico:** Feed de notícias atualizado e previsão do tempo em tempo real.
+- **Componentes Interativos:** Efeitos visuais como fogos de artifício ao clicar na tela.
 
 ## Tecnologias Utilizadas
 
-- Spring Boot
-- Spring Web
-- RestTemplate for API calls
-- Lombok
+- **Frontend:**
 
-## Installation and Configuration
-Certifique-se de que as chaves da API e outras configurações necessárias estão corretas no arquivo `application.properties` antes de iniciar o serviço. Para executar localmente, use:
+  - React.js
+  - React Router
+  - Axios para requisições HTTP
+  - React Toastify para notificações
+  - Font Awesome para ícones
+  - ESLint para linting
+  - Vite.js para build e desenvolvimento rápido
+
+- **Backend:**
+  - Spring Boot
+  - Spring Security
+  - JWT (Json Web Token)
+  - JavaMailSender para envio de emails
+  - Lombok para redução de código boilerplate
+
+## Como Executar o Projeto
+
+1. **Pré-requisitos:**
+
+- Node.js e npm/yarn instalados para o frontend.
+- Java JDK 11+ e Maven para o backend.
+- Um servidor SMTP configurado para envio de emails.
+
+2. **Clonar o Repositório:**
+
 ```bash
-mvn spring-boot:run
-  ```
+git clone [https://github.com/yxsbx/SkyFeedConnect-Java-React.git]
+cd NomeDaPastaDoProjeto
+```
 
-Cada controller contém endpoints específicos com métodos correspondentes para lidar com solicitações recebidas e fornecer respostas apropriadas.
+## SFCAuthenticator
 
-# Segurança JWT
+O módulo `SFCAuthenticator` é responsável pela autenticação de usuários e gerenciamento de acessos utilizando tokens JSON Web (JWT).
 
-Este pacote contém classes relacionadas à autenticação e segurança JWT (JSON Web Token).
+---
 
-## AuthEntryPointJwt
+## SkyFeedConnect API Services
 
-A classe `AuthEntryPointJwt` atua como o ponto de entrada de autenticação personalizado para autenticação JWT. Ele lida com pontos de entrada não autorizados enviando uma resposta HTTP com corpo JSON.
+Esta parte do projeto engloba os serviços da SkyFeedConnect API, permitindo interação com APIs externas, gerenciamento de usuários e mais.
 
-## AuthFilterToken
+---
 
-A classe `AuthFilterToken` é um filtro personalizado para lidar com autenticação JWT. Ele filtra solicitações HTTP para verificar tokens JWT e autenticar usuários.
+## SkyFeedConnect Frontend
 
-## JwtUtils
+A parte de frontend do projeto SkyFeedConnect oferece uma interface web para interação com APIs externas, gerenciamento de usuários e exibição de conteúdos.
 
-A classe `JwtUtils` fornece métodos de utilidade para geração, validação e extração de tokens JWT.
+## Grupo
 
-### Métodos:
+Este projeto foi desenvolvido por:
 
-- `extractUsernameFromJwtToken(String token)`: Extrai o nome de usuário de um token JWT.
-- `validateJwtToken(String token)`: Valida um token JWT.
-- `extractClaimFromJwtToken(String token, Function<Claims, T> claimsResolver)`: Extrai uma reivindicação específica de um token JWT.
-- `getSigningKey()`: Gera a chave de assinatura para o token JWT.
+- Yasmin Barcelos
+- Daniel Martins
+- Paulo Henrique
 
+---
 
+# SkyFeedConnect - EN VERSION
 
-Essas classes trabalham juntas para fornecer funcionalidades de autenticação JWT no aplicativo.
+Welcome to the SkyFeedConnect project! This README serves as an introduction to the project, describing its main functionalities, technologies used, and information about the group responsible for the development. This document provides an overview of the SkyFeedConnect project, including its different parts and technologies used. Below are the links to the READMEs of each specific folder in the project:
 
+- [README for "SFCAuthenticator" folder](\SFCAuthenticator\README.md)
+- [README for "SkyFeedConnect API Services" folder](\SkyFeedConnectAPI\README.md)
+- [README for "SkyFeedConnect Frontend" folder](\vite-project\public\README.md)
+
+---
+
+## Key Features
+
+- **User Authentication:** Login, registration of new users, and email verification.
+- **Integration with External APIs:** Retrieval of news data from the IBGE API and weather information from the OpenWeatherMap API.
+- **Dynamic Content Display:** Updated news feed and real-time weather forecast.
+- **Interactive Components:** Visual effects like fireworks upon clicking on the screen.
+
+## Technologies Used
+
+- **Frontend:**
+
+  - [React.js](link to frontend folder)
+  - React Router
+  - Axios for HTTP requests
+  - React Toastify for notifications
+  - Font Awesome for icons
+  - ESLint for linting
+  - Vite.js for fast build and development
+
+- **Backend:**
+  - [Spring Boot](link to backend folder)
+  - Spring Security
+  - JWT (Json Web Token)
+  - JavaMailSender for email sending
+  - Lombok for reducing boilerplate code
+
+## How to Run the Project
+
+1. **Prerequisites:**
+
+   - Node.js and npm/yarn installed for the frontend.
+   - Java JDK 11+ and Maven for the backend.
+   - An SMTP server configured for email sending.
+
+2. **Clone the Repository:**
+
+```bash
+git clone [https://github.com/yxsbx/SkyFeedConnect-Java-React.git]
+cd ProjectFolderName
+```
+
+## SFCAuthenticator
+
+The SFCAuthenticator module is responsible for user authentication and access management using JSON Web Tokens (JWT). Learn more in the SFCAuthenticator README.
+
+## SkyFeedConnect API Services
+
+This part of the project encompasses the services of the SkyFeedConnect API, allowing interaction with external APIs, user management, and more. Check out the API Services README for details.
+
+## SkyFeedConnect Frontend
+
+The frontend part of the SkyFeedConnect project offers a web interface for interaction with external APIs, user management, and content display. See the Frontend README for complete details.
+
+## Group
+
+This project was developed by:
+
+- Yasmin Barcelos
+- Daniel Martins
+- Paulo Henrique
