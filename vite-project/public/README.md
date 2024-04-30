@@ -42,11 +42,15 @@ O projeto está organizado da seguinte forma:
 - Utiliza o hook `useAuth` para autenticação.
 - Contém formulário de login e redirecionamentos para cadastro.
 
+![LoginPage.jsx](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/LoginPage.png)
+
 ### SignUpPage.jsx
 
 - Página para cadastro de novos usuários.
 - Faz requisições para registrar novos usuários.
 - Utiliza `react-toastify` para exibir mensagens de erro/sucesso.
+
+![SignUpPage.jsx](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/SignUpPage.png)
 
 ### MainPage.jsx
 
@@ -54,7 +58,9 @@ O projeto está organizado da seguinte forma:
 - Exibe feed de notícias, previsão do tempo e data/hora.
 - Permite logout e redirecionamentos.
 
-### DateTimeWidget.jsx
+![MainPage.jsx](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/MainPage.png)
+
+#### DateTimeWidget.jsx
 
 - Componente responsável por exibir a data e hora atuais.
 - Utiliza `useState` para gerenciar o estado da data atual.
@@ -62,7 +68,7 @@ O projeto está organizado da seguinte forma:
 - Contém funções para formatar a data e hora.
 - Renderiza a data e hora formatadas na interface.
 
-### NewsFeed.jsx
+#### NewsFeed.jsx
 
 - Componente para exibir um feed de notícias.
 - Utiliza `useState` para armazenar as notícias obtidas da API.
@@ -70,7 +76,7 @@ O projeto está organizado da seguinte forma:
 - Exibe as notícias principais, secundárias e adicionais de forma organizada.
 - Permite visualizar detalhes de cada notícia ao clicar nos links correspondentes.
 
-### WeatherWidget.jsx
+#### WeatherWidget.jsx
 
 - Componente para exibir as condições climáticas atuais de um determinado local.
 - Utiliza `useState` para armazenar o local inserido pelo usuário.
@@ -89,6 +95,8 @@ O projeto está organizado da seguinte forma:
 - Utiliza eventos de clique para criar os efeitos de fogos de artifício na posição do clique do usuário.
 - Este componente adiciona uma interação visual interessante à aplicação.
 
+![EmailVerified](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/EmailVerification.png)
+
 ### VerifyEmail.jsx
 
 - O componente `VerifyEmail` é responsável por verificar e ativar um usuário através de um email enviado com um UUID único.
@@ -96,6 +104,8 @@ O projeto está organizado da seguinte forma:
 - Utiliza o hook `useEffect` para realizar a verificação de email ao montar o componente.
 - Renderiza a mensagem de verificação e o componente `FireworksCanvas` para exibir os fogos de artifício ao verificar o email com sucesso.
 - Este componente é importante para a funcionalidade de verificação de email e proporciona uma experiência visual agradável ao usuário.
+
+![EmailVerification](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/ConfirmationEmail.png)
 
 ---
 
@@ -143,17 +153,23 @@ The project is organized as follows:
 - Uses the `useAuth` hook for authentication.
 - Contains login form and redirections to registration.
 
+![LoginPage.jsx](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/LoginPage.png)
+
 ### SignUpPage.jsx
 
 - Page for new user registration.
 - Makes requests to register new users.
 - Uses `react-toastify` to display error/success messages.
 
+![SignUpPage.jsx](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/SignUpPage.png)
+
 ### MainPage.jsx
 
 - Main page after login.
 - Displays news feed, weather forecast, and date/time.
 - Allows logout and redirections.
+
+![MainPage.jsx](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/MainPage.png)
 
 ### DateTimeWidget.jsx
 
@@ -190,6 +206,8 @@ The project is organized as follows:
 - Uses click events to create fireworks effects at the user's click position.
 - This component adds an interesting visual interaction to the application.
 
+![EmailVerified](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/EmailVerification.png)
+
 ### VerifyEmail.jsx
 
 - The `VerifyEmail` component is responsible for verifying and activating a user via an email sent with a unique UUID.
@@ -197,3 +215,5 @@ The project is organized as follows:
 - Uses the `useEffect` hook to perform email verification on component mount.
 - Renders the verification message and the `FireworksCanvas` component to display fireworks when email verification is successful.
 - This component is important for email verification functionality and provides a pleasant visual experience for the user.
+
+![EmailVerification](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/5e346bcb0888ffe6dfaabbf18fe853441686b9cd/screenshots/ConfirmationEmail.png)
