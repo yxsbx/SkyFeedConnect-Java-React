@@ -2,7 +2,7 @@
 
 Bem-vindo ao projeto SkyFeedConnect! Este README serve como uma introdução ao projeto, descrevendo suas funcionalidades principais, tecnologias utilizadas e informações sobre o grupo responsável pelo desenvolvimento. Este documento fornece uma visão geral do projeto SkyFeedConnect, incluindo suas diferentes partes e tecnologias utilizadas. Abaixo estão os links para os READMEs de cada pasta específica do projeto:
 
-![SkyFeedConnect Gif](https://example.com/skyfeedconnect-logo.png](https://github.com/yxsbx/SkyFeedConnect-Java-React/blob/main/screenshots/Complete%20project.gif)
+![SkyFeedConnect Gif](screenshots/ConfirmationEmail.png)
 
 - [README da pasta "SFCAuthenticator"](\SFCAuthenticator\README.md)
 - [README da pasta "SkyFeedConnect API Services"](\SkyFeedConnectAPI\README.md)
